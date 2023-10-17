@@ -1,0 +1,69 @@
+<div class="crearProductoContainer">
+  <form (ngSubmit)="crearProducto()">
+    <div class="setDataContainer">
+<!--   Set nombre   -->
+      <div class="mb-3">
+        <label for="nameText" class="form-label">Nombre del Producto</label>
+        <input type="text" name="nombre" [(ngModel)]="producto.nombre" class="form-control" id="nameText" aria-describedby="emailHelp">
+      </div>
+
+<!--  Set Talla    -->
+      <div class="mb-3">
+        <div class="input-group mb-3">
+          <div class="dropdown">
+            <button class="btn btn-warning dropdown-toggle" id="tallaBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Tallas
+            </button>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item" (click)="selectSize('XS')">XS</li>
+              <li class="dropdown-item" (click)="selectSize('S')">S</li>
+              <li class="dropdown-item" (click)="selectSize('M')">M</li>
+              <li class="dropdown-item" (click)="selectSize('L')">L</li>
+              <li class="dropdown-item" (click)="selectSize('XL')">XL</li>
+            </ul>
+          </div>
+          <input type="text" name="talla" readonly class="form-control form-control-plaintext" id="talla" value="{{talla}}">
+        </div>
+      </div>
+<!--  Set color   -->
+      <div class="mb-3">
+        <label class="form-label" for="exampleCheck1">Color</label>
+        <input type="text" name="color" [(ngModel)]="producto.color" class="form-control" id="exampleCheck1">
+      </div>
+<!--  Set precio      -->
+      <div class="mb-3">
+        <label class="form-label" for="exampleCheck2">Precio</label>
+        <input type="number" name="precio" [(ngModel)]="producto.precio" class="form-control" id="exampleCheck2">
+      </div>
+<!--    Set Foto Link      -->
+      <div class="mb-3">
+        <label class="form-label" for="fotoLink">Foto</label>
+        <input type="url" name="foto" [(ngModel)]="producto.foto" class="form-control" id="fotoLink" placeholder="www.imagen.com">
+        <label for="fotoLink" class="form-text">Solo se aceptan links</label>
+      </div>
+<!--    Set Stock    -->
+      <div class="mb-3">
+        <label for="stock" class="form-label">Stock Disponible</label>
+        <input type="number" name="nombre" [(ngModel)]="producto.cantidad" class="form-control" id="stock" aria-describedby="emailHelp">
+      </div>
+<!--  Setear categoria  -->
+      <div class="mb-3">
+        <div class="input-group mb-3">
+          <div class="dropup">
+            <button class="btn btn-warning dropdown-toggle" id="categoryBtn" type="button" data-bs-toggle="dropdown" aria-expanded="false" (click)="getCategorias()">
+              Categorias
+            </button>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item" *ngFor="let categoria of categorias" (click)="setCategoria(categoria.nombre,categoria.categoriaId)">
+                {{categoria.nombre}}
+              </li>
+            </ul>
+          </div>
+          <input type="text" readonly class="form-control form-control-plaintext" id="categoria" value="{{categoriaNombre}}" name="categoriaId" [(ngModel)]="producto.categoriaId">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+<button type="button" class="btn btn-success"><a href="productos/buscar">Buscar Productos</a></button>

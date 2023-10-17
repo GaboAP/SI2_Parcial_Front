@@ -1,0 +1,23 @@
+<div class="comprarContainer">
+  <button class="btn btn-primary comprar" (click)="mostrarConfirmacion()">Realizar Compra</button>
+</div>
+
+<div class="cardsContainer">
+  <div class="card" style="width: 18rem;" *ngFor="let cartaProducto of carritoData">
+    <img src="{{cartaProducto.foto}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{cartaProducto.nombre}}</h5>
+      <p class="card-text">{{cartaProducto.precio*cartaProducto.cantidadCompra}}Bs.</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Talla: {{cartaProducto.talla}}</li>
+      <li class="list-group-item">Color: {{cartaProducto.color}}</li>
+      <li class="list-group-item">Cantidad a Comprar: {{cartaProducto.cantidadCompra}}</li>
+      <li class="list-group-item quitarProducto">
+        <button class="btn btn-danger borrar" (click)="quitarDelCarro(cartaProducto.id)">Quitar del carro</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+

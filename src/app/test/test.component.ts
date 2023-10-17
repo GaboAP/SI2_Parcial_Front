@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';//para hacer llamados
-import { Observable } from 'rxjs';
-import { Title } from '@angular/platform-browser';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.css']
 })
-export class AppComponent {
+export class TestComponent {
   title = 'SI2_Parcial_Front';
   apiRoute="http://127.0.0.1:8000/api";
   categoria='';
@@ -36,7 +34,7 @@ export class AppComponent {
       {
         nombre: this.title
       }
-      ).subscribe(
+    ).subscribe(
       (response:any)=>{
         console.log(response.message)
         this.title=response.message
@@ -53,10 +51,10 @@ export class AppComponent {
       {
         nombre: this.categoria
       }
-      ).subscribe(
+    ).subscribe(
       (response:any)=>{
         console.log(response.message)
-        this.categoriaCreada=this.categoria
+        this.categoriaCreada=this.categoria +" de id "+ response.id;
       },
       (error)=>{
         console.log(error)
@@ -64,5 +62,27 @@ export class AppComponent {
       }
     )
   }
-}
+  login(){
 
+    const postData = {
+      email: this.userData.email,
+      password: this.userData.password
+    };
+    this.http.post(this.apiRoute+"/login", postData).
+    subscribe((response:any)=>{
+        console.log(response.message)
+        this.logged=response.message;
+      },
+      (error)=>{
+        console.log(error)
+        this.logged='No se pudo iniciar sesion :c'
+      })
+  }
+  logout(){
+    this.http.post(this.apiRoute+"/logout",""). subscribe((response:any)=>{
+      console.log(response.message)
+      this.logged=response.message;
+    })
+  }
+
+}

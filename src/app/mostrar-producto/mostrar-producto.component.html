@@ -1,0 +1,19 @@
+<div class="card" style="width: 18rem;">
+  <img src="{{producto.foto}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{producto.nombre}}</h5>
+    <p class="card-text">{{producto.precio}}Bs.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Talla: {{producto.talla}}</li>
+    <li class="list-group-item">Color: {{producto.color}}</li>
+    <li class="list-group-item">Stock: {{producto.cantidad}}</li>
+  </ul>
+  <div class="card-body">
+    <label for="cantidadInput" class="form-label">Cantidad:</label>
+    <input type="number" [(ngModel)]="cantidadCompra" class="form-control" id="cantidadInput" name="cantidad" required>
+  </div>
+  <div class="card-body">
+    <button (click)="anhadirAlCarro()" class="btn btn-outline-info">Añadir al Carrito</button>
+  </div>
+</div>

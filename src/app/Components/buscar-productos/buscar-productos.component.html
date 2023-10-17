@@ -1,0 +1,36 @@
+<div class="input-group mb-3">
+    <input type="text" [(ngModel)]="nombreProducto" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <button type="submit" class="btn btn-primary" (click)="buscar()">Submit</button>
+</div>
+
+<div class="container text-center" *ngIf="created">
+    <div class="row">
+        <div class="col">
+            Nombre
+        </div>
+        <div class="col">
+            Talla
+        </div>
+        <div class="col">
+            Color
+        </div>
+        <div class="col">
+            Categoria
+        </div>
+    </div>
+    <div class="row" *ngFor="let producto of data">
+        <div class="col data">
+          <a href="productos/{{producto.idProducto}}">{{ producto.nombre }}</a>
+        </div>
+        <div class="col data">
+            {{ producto.talla }}
+        </div>
+        <div class="col data">
+            {{ producto.color }}
+        </div>
+        <div class="col data">
+            {{ producto.categoria.nombre }}
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-success"><a href="productos/crear">crear</a></button>

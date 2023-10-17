@@ -1,0 +1,10 @@
+.row, .col{
+  border:0.5px solid grey;
+  border-radius: 5px;
+}
+.col{
+  padding:1%;
+}
+.data{
+  border-top:none;
+}

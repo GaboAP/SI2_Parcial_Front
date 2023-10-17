@@ -1,0 +1,13 @@
+.formContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginForm{
+  padding-top: 5%;
+  width: 75%;
+}
+.setInfo{
+  border-radius: 10px;
+  padding: 5%;
+}

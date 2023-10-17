@@ -1,0 +1,28 @@
+<h1>Confirmar Compra</h1>
+<div class="formContainer">
+  <form class="loginForm" (ngSubmit)="comprar()">
+    <div class="setInfo border border-success">
+<!--      set nombre-->
+      <div class="mb-3 nombreCompleto">
+        <label for="campoNombre" class="form-label">Nombre Completo</label>
+        <input type="text" [(ngModel)]="nombre" name="nombre" class="form-control" id="campoNombre" aria-describedby="setNombre" required>
+      </div>
+<!--      set nit-->
+      <div class="mb-3">
+        <label for="inputNit" class="form-label">Nit</label>
+        <input type="number" [(ngModel)]="nit" name="nit" class="form-control" id="inputNit" required>
+      </div>
+<!--      set metodo de pago-->
+      <label class="form-label">Métodos de Pago</label>
+      <div class="input-group mb-3">
+          <input type="text" class="form-control" value="{{metodoPago}}" id="inputPago" aria-label="Text input with dropdown button" readonly>
+          <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Métodos</button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li class="dropdown-item" (click)="setMetodo('Efecitvo')">Efectivo</li>
+            <li class="dropdown-item" (click)="setMetodo('Tarjeta')">Tarjeta</li>
+          </ul>
+      </div>
+      <button type="submit" class="btn btn-outline-success">Confirmar</button>
+    </div>
+  </form>
+</div>

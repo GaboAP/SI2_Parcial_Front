@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+.btn a{
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit the color from the parent button */
+}

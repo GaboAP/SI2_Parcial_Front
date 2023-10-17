@@ -1,0 +1,18 @@
+.comprarContainer{
+  padding:3%;
+}
+.cardsContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5%;
+  padding-top: 0;
+}
+img{
+  height: 250px;
+}
+.quitarProducto{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
